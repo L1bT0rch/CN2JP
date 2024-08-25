@@ -148,7 +148,13 @@ def main():
     """
     主函数，用于执行文件和TXT文件转换操作。
     """
-    if not ask_yes_no('本工具只适用于简体中文系统\n请确认当前终端工作目录是否是[需要转换的文件夹]\n请务必在运行本工具前备份您的原始文件！\n是否继续？'):
+
+    # 获取并打印当前工作目录
+    current_directory = os.getcwd()
+    print(f"当前工作目录为: {current_directory}")
+
+    # 确认用户是否希望继续
+    if not ask_yes_no('本工具只适用于简体中文系统\n请确认当前工作目录是否是[需要转换的文件夹]\n请务必在运行本工具前备份您的原始文件！\n是否继续？'):
         sys.exit()
     else:
         if os.path.exists(LOG_FILE):
